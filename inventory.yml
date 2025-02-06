@@ -1,0 +1,6 @@
+webserver1:
+  hosts:
+    13.201.186.38
+  vars:
+    ansible_user: ubuntu
+    ansible_ssh_private_key_file: /Users/surya.d/Downloads/private-keys/surya-key-CF.pem
