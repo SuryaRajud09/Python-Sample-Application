@@ -11,13 +11,6 @@
         owner: ubuntu
         group: ubuntu
 
-    - name: Copy application files
-      copy:
-        src:  /
-        dest: /opt/my-app/
-        owner: ubuntu
-        group: ubuntu
-
     - name: Install dependencies
       apt:
         name: "{{ item }}"
@@ -28,10 +21,10 @@
 
     - name: Install Python requirements
       pip:
-        requirements: /opt/my-app/requirements.txt
+        requirements: /home/ubuntu/python-app/Python-Sample-Application/requirements.txt
 
     - name: Restart application service
       systemd:
-        name: my-app
+        name: python-app
         state: restarted
         enabled: yes
