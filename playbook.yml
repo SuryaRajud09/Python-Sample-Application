@@ -23,6 +23,24 @@
       pip:
         requirements: /home/ubuntu/python-app/Python-Sample-Application/requirements.txt
 
+    - name: Create systemd service for Python application
+      copy:
+        dest: /etc/systemd/system/python-app.service
+        content: |
+          [Unit]
+          Description=Python Application Service
+          After=network.target
+
+          [Service]
+          User=ubuntu
+          WorkingDirectory=/home/ubuntu/python-app/Python-Sample-Application
+          ExecStart=/usr/bin/python3 app.py
+          Restart=always
+
+          [Install]
+          WantedBy=multi-user.target
+      notify: Reload systemd
+
     - name: Restart application service
       systemd:
         name: python-app
