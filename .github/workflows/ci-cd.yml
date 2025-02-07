@@ -28,3 +28,4 @@ jobs:
         env:
           ANSIBLE_HOST_KEY_CHECKING: False
           ANSIBLE_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          
